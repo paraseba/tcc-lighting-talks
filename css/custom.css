@@ -1,0 +1,17 @@
+.reveal small {
+  font-size: 0.35em;
+}
+
+.reveal code.small {
+  font-size: 0.6em;
+  width: 900px;
+}
+
+.reveal strong {
+  opacity: 0.85;
+  color: #DCA3A3;
+}
+
+.reveal p.footnote {
+  font-size: 0.8em;
+

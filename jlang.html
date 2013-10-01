@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>J Language</title>
+
+		<meta name="description" content="Lightning talk">
+		<meta name="author" content="Sebastian Galkin">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/night.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/jlang.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+        <section>
+          <h1>J Language</h1>
+          <pre style="margin-top:80px;"><code contenteditable class="no-highlight" style="font-size:1.7em;">(_2 + *:) (1 : '- u % u d. 1')^:(i.6) 1
+
+1 1.5 1.41667 1.41422 1.41421 1.41421</code></pre>
+          <p style="margin-top:80px;">Don't you love it already?</p>
+
+        </section>
+
+        <section data-state="background" data-background="ken.jpg" data-background-size="50%">
+          <h2>History and use</h2>
+          <ul>
+            <li>Created in 1990 by Ken Iverson & Roger Hui</li>
+            <li>Iverson is Turing Award winner, invertor of APL</li>
+            <li>Excels at stats, data processing, data analysis</li>
+            <li><strong>It can do pretty pictures and shit</strong></li>
+          </ul>
+        </section>
+
+        <section data-state="background" data-background="vocab.jpg">
+          <h2>The bad parts</h2>
+          <ul>
+            <li>It's very different to other languages you already know</li>
+            <li>Core function names are non-alphanumeric</li>
+            <li>It's not easy to learn, I'm a total newbie</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Values are called nouns</h2>
+          <pre><code contenteditable class="no-highlight">
+1 2 3 _1
+
+5.5 _3.7            NB. this is a comment waaaaaaat?
+
+1j1 1r3 4j2.2
+
+2^100x              NB. 1267650600228229401496703205376
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Functions are called verbs</h2>
+          <h4>Verbs act on nouns</h4>
+          <p>Verbs can only take 1 or 2 arguments. Monads and dyads</p>
+          <pre><code contenteditable class="no-highlight">
+10 % 2       NB. --->  5
+
+5 + 1j3      NB. --->  6j3
+
+
+
+% 4          NB. --->  0.25
+
++ 1j3        NB. --->  1j_3
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Rank and dimension</h2>
+          <h4>Nouns are multi-dimensional arrays</h4>
+          <pre class="stretch"><code contenteditable class="no-highlight">i.8             NB. --->  0 1 2 3 4 5 6 7
+# i.8           NB. --->  8
+
+i. 2 2          NB. --->  0 1
+                NB.       2 3
+
+
+i. 2 2 3        NB. --->  0  1  2
+                NB.       3  4  5
+
+                NB.       6  7  8
+                NB.       9 10 11
+          </code></pre>
+        </section>
+
+
+        <section>
+          <h3>Verbs act on multi-dimensional nouns</h3>
+          <pre><code contenteditable class="no-highlight">
+(i.5) + i.5      NB. --->  0 2 4 6 8
+
+(i.5) * i.5      NB. --->  0 1 4 9 16
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Adverbs</h2>
+          <p>They take a verb on the left and returns a new verb</p>
+
+          <p>
+          <code>/</code> applies the verb on its left
+          between the items of the argument
+          </p>
+
+          <pre><code contenteditable class="no-highlight">
++/ i.5        NB. --->  0 + 1 + 2 + 3 + 4 = 10
+
+i.2 2         NB. --->  0 1
+              NB.       2 3
+
++/ i.2 2      NB. --->  2 4
+          </code></pre>
+				</section>
+
+
+        <section>
+          <h2>Patterns of composition</h2>
+          <p>Trains of verbs. <code>x</code> and <code>y</code> are nouns
+          <code>f</code>, <code>g</code> and <code>h</code> are verbs
+          </p>
+          <pre><code contenteditable class="no-highlight">
+(f g) y       means    y f (g y)
+
+(f g h) y     means    (f y) g (h y)        <-------
+
+x (f g) y     means    x f (g y)
+
+x (f g h) y   means    (x f y) g (x h y)
+          </code></pre>
+
+<p>Using these patterns you can skip the variable names (nouns)</p>
+
+<p><strong>Point Free Style</strong></p>
+				</section>
+
+
+        <section>
+          <h2>Composition example</h2>
+          <p>Array average: sum its elements, divide by the length</p>
+          <pre><code contenteditable class="no-highlight">
+x =: i.101                NB. our array
+
+sum =: +/ x               NB. sum the elements
+
+length =: #x              NB. compute number of elements
+
+average =: sum % length   NB. sum over length = mean
+          </code></pre>
+
+          <div class="fragment">
+            <p>Now the nice way</p>
+
+            <pre><code contenteditable class="no-highlight">
+  average =: +/ % #
+
+  average x      NB. ---> (+/ x) % (# x)  --->  50
+            </code></pre>
+          </div>
+				</section>
+
+
+        <section>
+          <h2>Conway's Game of Life</h2>
+          <img src="conway.gif" width="70%"/>
+
+          <div class="fragment">
+            <pre><code contenteditable class="no-highlight">
+  (_3 _3 (+/ e. 3+0,4&{)@,;._3 ])@(0,0,~0,.0,.~])
+            </code></pre>
+
+            <p>Meet me later and let's study together how it works</p>
+        </div>
+        </section>
+
+				<section>
+          <h1>Thanks</h1>
+
+          <ul>
+            <li><code>http://jsoftware.com</code></li>
+            <li>Nice book: <code>http://go/jbook</code></li>
+            <li>Pretty pictures: <code>http://go/jdemo</code></li>
+          </ul>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false,
+				progress: false,
+				history: true,
+				center: true,
+        //loop: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+
+        math: {
+            mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+            config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+        },
+
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+          { src: 'plugin/math/math.js', async: true },
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Beautiful, simple, explicit</title>
+
+		<meta name="description" content="Lightning talk">
+		<meta name="author" content="Sebastian Galkin">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/explicit.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+        <section>
+          <h2>Beautiful, simple, explicit</h2>
+          <p> This is not my original talk </p>
+          <p> You vote for one thing, you get a different one.  </p>
+          <p> Any similarity with reality is pure coincidence</p>
+
+          <p style="margin-top: 90px; font-size: 85%;">Blame Zimmer</p>
+        </section>
+
+				<section>
+          <pre><code contenteditable>
+$> python -c 'import this'
+          </code></pre>
+          <pre style="font-size: 1.1em; padding: 20px;">
+<strong>Beautiful</strong> is better than ugly.
+<strong>Explicit</strong> is better than implicit.
+<strong>Simple</strong> is better than complex.
+        </pre>
+				</section>
+
+				<section data-background="venus.jpg">
+          <h1 style="font-size: 270px;">Beautiful</h1>
+				</section>
+
+				<section data-background="feet.jpg" data-background-size="100%">
+          <h3 style="background-color: rgba(0,0,0,0.5); padding: 50px 0; ">Release early, release often</h3>
+				</section>
+
+				<section data-background="score.gif" >
+          <div style="background: darkslategray; padding: 50px 10px" >
+          <h1>Beauty requires a trained eye</h1>
+          <p>Mozart or Britney?</p>
+        </div>
+				</section>
+
+				<section >
+          <h3>Beautiful?</h3>
+          <img width="100%" src="paintings.jpg"/>
+          <p>Hans Hoffmann or 4-year-old?</p>
+
+          <p style="margin-top: 90px;">
+          <pre><code class="no-highlight" contenteditable>
+(_3 _3 (+/ e. 3+0,4&{)@,;._3 ])@(0,0,~0,.0,.~])
+          </code></pre>
+          </p>
+          <p>Brainfuck?</p>
+				</section>
+
+        <section>
+          <h1>Duff's device</h1>
+          <pre class="stretch"><code contenteditable>register n = (count + 7) / 8;
+switch(count % 8) {
+  case 0: do {    *to = *from++;
+  case 7:         *to = *from++;
+  case 6:         *to = *from++;
+  case 5:         *to = *from++;
+  case 4:         *to = *from++;
+  case 3:         *to = *from++;
+  case 2:         *to = *from++;
+  case 1:         *to = *from++;
+        } while(--n > 0);
+}
+        </code></pre>
+        </section>
+
+				<section>
+          <h1 style="font-size: 270px;">Simple</h1>
+				</section>
+
+				<section>
+          <h3>High compression</h3>
+          <p style="font-size: 130%; margin-bottom: 71px;">
+            $$e^{\pi\ i} + 1 = 0$$
+          </p>
+
+          <h3>High abstraction</h3>
+          <p style="font-size: 130%;">
+            $$F = m a$$
+          </p>
+          <p style="font-size: 130%;">
+            $$\frac{d}{dt} \left(\frac{\partial L}{\partial \dot{q}_j}\right) = \frac{\partial L}{\partial q_j}     $$
+          </p>
+          <p style="font-size: 130%;">
+            $$\delta \int_{t1}^{t2} \! L\ \mathrm d t = 0$$
+          </p>
+				</section>
+
+				<section>
+          <p>
+          <blockquote style="font-size: 150%; line-height: 1em; padding: 40px;">
+            &ldquo;The purpose of abstraction is not to be vague, but to create a new semantic level in which one can be absolutely precise&rdquo;
+          </blockquote>
+          -- Edsger Dijkstra
+          </p>
+				</section>
+
+				<section>
+          <h1 style="font-size: 270px;">Explicit</h1>
+				</section>
+
+				<section>
+          <h3> Good abstractions don't hide details </h3>
+
+          <p>
+          <pre><code contenteditable>
+          def give_me_a_random_thing():
+            ...
+          </code></pre>
+          </p>
+
+          <p>
+          <pre><code contenteditable>
+          def give_me_the_last_version():
+            ...
+          </code></pre>
+          </p>
+
+          <ul>
+            <li>Hard to test</li>
+            <li>Hard to reproduce</li>
+            <li>Hard to reuse</li>
+          </ul>
+				</section>
+
+				<section>
+          <h2>Easy to Use &#8800; Simple </h2>
+
+          <p><code>http://go/simple</code></p>
+				</section>
+
+				<section data-background="date.jpg" data-background-size="95%">
+
+          <div style="background: darkslategray; padding: 50px 10px" >
+            <h2>OK, cut the BS, something actionable</h2>
+            <ul>
+              <li>Start by being boringly explicit</li>
+              <li>Then go for abstract</li>
+              <li>Finally, build easy on top beautiful abstractions</li>
+              <li>You can not go from implicit to explicit </li>
+              <li>Develop good taste for design and abstraction</li>
+              <li>Practice</li>
+            </ul>
+            <p style="margin-top: 50px;"><strong>&lt;blink&gt;Never start by making it easy to use&lt;/blink&gt;</strong></p>
+          </div>
+				</section>
+
+				<section>
+          <h1>Thanks</h1>
+          
+          <p>Doc related to my original talk:</p>
+          <p><code style="font-size:0.9em;">http://go/point-in-time</code></p>
+
+
+          <p style="margin-top: 70px;">
+          Images:
+          <small>
+            <ul>
+              <li>http://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg/1280px-Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg</li>
+              <li>http://www2.warwick.ac.uk/fac/arts/english/currentstudents/postgraduate/masters/modules/poetryandmusic/syllabus/week5/classmaterial/url.gif</li>
+              <li>http://www.huffingtonpost.com/2011/03/28/study-examines-difference_n_841268.html</li>
+              <li>http://docs.oracle.com/javase/1.4.2/docs/api/java/util/Date.html</li>
+            </ul>
+            </small>
+          </p>
+
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false,
+				progress: false,
+				history: true,
+				center: true,
+        //loop: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+
+        math: {
+            mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+            config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+        },
+
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+          { src: 'plugin/math/math.js', async: true },
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
